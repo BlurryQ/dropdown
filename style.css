@@ -1,8 +1,60 @@
 html {
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(25, 25, 25);
     color: whitesmoke;
+    font-size: 2rem;
 }
 
-li {
+.dropdown {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.select,
+.menu li {
+    width: 5rem;
+}
+
+.select {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(30, 37, 134);
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #ffffff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
     list-style: none;
+    padding: 1rem;
+    background-color: rgb(30, 37, 134);
+    width: max-content;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.menu-open {
+    display: block;
+}
+
+
+.active {
+    background-color: rgb(20, 25, 92);
 }
