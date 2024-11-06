@@ -1,11 +1,31 @@
-const dropdown = document.getElementById('dropdown')
+const dropdowns = document.querySelectorAll('.dropdown')
 
-dropdown.addEventListener('mousedown', () => {
-    console.log("dropdown opened")
+dropdowns.forEach(dropdown => {
+    const selected = document.querySelector('.selected')
+    const menu = document.querySelector('.menu')
+
+    dropdown.addEventListener('click', (e) => {
+        menu.classList.toggle('menu-open')
+
+        menuLis = document.querySelectorAll('.menu li')
+        menuLis.forEach(li => {
+            li.addEventListener('click', (e) => {
+
+                const selection = e.target.innerText
+                console.log(selection, 'clicked!!')
+                console.log(" ")
+                selected.innerText = selection
+                menu.classList.toggle('menu-open')
+
+                menuLis.forEach(lis => {
+                    lis.classList.remove('active')
+                })
+                li.classList.toggle('active')
+            })
+        })
+    })
+
 })
 
-dropdown.addEventListener('click', (event) => {
-    const selection = event.target.attributes.value.value
-    console.log(selection, 'clicked!!')
-    console.log(" ")
-})
+
+
