@@ -5,13 +5,13 @@ html {
 }
 
 .dropdown {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
 .select,
 .menu li {
+    cursor: pointer;
     width: 5rem;
 }
 
@@ -56,5 +56,5 @@ html {
 
 
 .active {
-    background-color: rgb(20, 25, 92);
+    background-color: rgb(10, 10, 100);
 }
