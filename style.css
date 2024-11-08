@@ -1,12 +1,68 @@
 html {
-    background-color: rgb(25, 25, 25);
+    background-color: #23242a;
     color: whitesmoke;
     font-size: 2rem;
+    margin-left: 10%;
+}
+
+body {
+    display: flex;
+    gap: 2rem;
+}
+
+.column {
+    flex-direction: column;
+}
+
+:root {
+    --selected: #2a2f3b;
+    --select-clicked: #26489a;
+    --select-hover: rgb(41, 45, 53);
+    --menu: #323741;
+    --active: #23242a;
+    --border-radius: 0.3rem;
+    --caret: white;
+}
+
+.light-bg {
+    background-color: white;
+    padding: 3rem;
+    color: black;
+}
+
+.light {
+    --selected: #e3ebff;
+    --select-clicked: #1447c0;
+    --select-hover: #859edd;
+    --menu: #e3ebff;
+    --active: #b5c9fc;
+    --border-radius: 0.3rem;
+    --caret: black;
+
+    color: black;
 }
 
 .dropdown {
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.menu {
+    list-style: none;
+    padding: 1rem;
+    background-color: var(--menu);
+    width: max-content;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+
+.menu-open {
+    display: block;
 }
 
 .select,
@@ -15,15 +71,45 @@ html {
     width: 5rem;
 }
 
+.menu li:hover {
+    background-color: var(--select-hover);
+}
+
+.menu li {
+    padding: 0.3rem 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-indent: 0.5rem;
+    border-radius: var(--border-radius);
+    margin: 0.2rem 0.1rem;
+}
+
+ul {
+    border-radius: var(--border-radius);
+    border: 0.2rem solid var(--menu);
+    z-index: 1;
+    box-shadow: -2px 2px #0000009c, -5px 5px 5px #0000009c;
+}
+
 .select {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem;
-    background-color: rgb(30, 37, 134);
+    background-color: var(--selected);
     text-align: left;
-    padding: 0;
+    padding: 0.3rem 0;
     margin: 0;
     align-items: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.3rem;
+    width: 5.6rem;
+    border: 2px solid var(--selected);
+}
+
+.select-clicked {
+    border: 2px solid var(--select-clicked);
+    box-shadow: 1px 1px 3px var(--select-clicked), -1px -1px 3px var(--select-clicked);
 }
 
 .caret {
@@ -31,7 +117,7 @@ html {
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 6px solid #ffffff;
+    border-top: 6px solid var(--caret);
     transition: 0.3s;
 }
 
@@ -39,22 +125,7 @@ html {
     transform: rotate(180deg);
 }
 
-.menu {
-    list-style: none;
-    padding: 1rem;
-    background-color: rgb(30, 37, 134);
-    width: max-content;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-    display: none;
-}
-
-.menu-open {
-    display: block;
-}
-
 
 .active {
-    background-color: rgb(10, 10, 100);
+    background-color: var(--active);
 }
