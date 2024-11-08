@@ -1,29 +1,33 @@
 const selects = document.querySelectorAll('.select')
 
-selects.forEach(select => {
-    const selected = document.querySelector('.selected')
-    const menu = document.querySelector('.menu')
+selects.forEach((select, i) => {
+    const menus = document.querySelectorAll('.menu')
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            menus[i].classList.remove('menu-open')   
+            selects[i].classList.remove('select-clicked')
+        }
+    })
+
+    const caret = selects[i].querySelector('.caret')
     select.addEventListener('click', (e) => {
-        menu.classList.toggle('menu-open')
+        menus[i].classList.toggle('menu-open')
+        selects[i].classList.toggle('select-clicked')
+        caret.classList.toggle('caret-rotate')
 
         // if not inside our element close menu
     })
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            menu.classList.remove('menu-open')   
-        }
-    })
-
-    menuLis = document.querySelectorAll('.menu li')
+    const selected = selects[i].querySelector('.selected')
+    const menuLis = menus[i].querySelectorAll('li')
     menuLis.forEach(li => {
         li.addEventListener('click', (e) => {
             const selection = e.target.innerText
-            console.log(selection, 'clicked!!')
-            console.log(" ")
             selected.innerText = selection
-            menu.classList.remove('menu-open')
+            caret.classList.toggle('caret-rotate')
+            menus[i].classList.remove('menu-open')
+            selects[i].classList.remove('select-clicked')
             menuLis.forEach(lis => {
                 lis.classList.remove('active')
             })
