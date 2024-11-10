@@ -14,23 +14,19 @@ body {
     flex-direction: column;
 }
 
-:root {
+.dark .dropdown {
     --selected: #2a2f3b;
     --select-clicked: #26489a;
-    --select-hover: rgb(41, 45, 53);
+    --select-hover: #23242a;
     --menu: #323741;
-    --active: #23242a;
+    --active: rgb(41, 45, 53);
     --border-radius: 0.3rem;
     --caret: white;
+    --dropdown-color: white;
+    color: white;
 }
 
-.light-bg {
-    background-color: white;
-    padding: 3rem;
-    color: black;
-}
-
-.light {
+.light .dropdown {
     --selected: #e3ebff;
     --select-clicked: #1447c0;
     --select-hover: #859edd;
@@ -38,14 +34,22 @@ body {
     --active: #b5c9fc;
     --border-radius: 0.3rem;
     --caret: black;
-
+    --dropdown-color: black;
     color: black;
+}
+
+.light-bg {
+    background-color: white;
+    padding: 3rem;
+    color: black;
+    height: 76vh;
 }
 
 .dropdown {
     display: flex;
     flex-direction: column;
     position: relative;
+    color: black;
 }
 
 .menu {
