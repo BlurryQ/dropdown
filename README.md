@@ -2,7 +2,7 @@
 
 ## Summary
 
-![Dropdown Creation](./demo.png)
+![Dropdown Creation](./demo.gif)
 
 I have created custom dropdown lists to enhance the user experience with a responsive, visually appealing design that supports both dark and light themes.
 
